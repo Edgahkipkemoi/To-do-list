@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+}
+
+#todo-list {
+  margin: 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+#todo-list li {
+  margin-bottom: 10px;
+}
