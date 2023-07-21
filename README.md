@@ -52,17 +52,15 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[In this project you can a add new Book class that contain its properties and methods ]**
-- **[In this project you can found dymanic HTML using literal template]**
-- **[Add,remove and see books lists using class methods to save each book]**
-- **[In this project you can see the contact information]**
-- **[Local Storage for saving the data of the books]**
+.To-Do List application a powerful and user-friendly tool for managing tasks effectively.
+.Users can add, edit, and delete tasks effortlessly while enjoying the benefits of persistent data storage for a seamless experience.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://edgahkipkemoi.github.io/Awesome-book-app/)
+- [Live Demo Link](https://edgahkipkemoi.github.io/To-do-list/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,7 +132,7 @@ To run the project:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Edgahkipkemoi/Awesome-book-app/issues).
+Feel free to check the [issues page](https://github.com/Edgahkipkemoi/To-do-list/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
