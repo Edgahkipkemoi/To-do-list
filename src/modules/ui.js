@@ -1,6 +1,5 @@
 import { todos, renderTodoList, todoList } from './todos.js';
-// eslint-disable-next-line import/no-unresolved
-import { addItem } from './ui-actions.js';
+import addItem from './ui-action.js';
 
 const newItemInput = document.getElementById('new-item-input');
 const addItemButton = document.getElementById('add-item-button');
