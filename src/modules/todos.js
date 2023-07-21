@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-import { addItem } from './ui-actions.js';
+import addItem from './ui-action.js';
 
 const todoList = document.getElementById('todo-list');
 const input = document.getElementById('new-item-input');
@@ -44,52 +43,6 @@ const renderTodoList = () => {
     icon.style.color = '#c8ccd0';
 
     // Add an event listener to the icon
-    icon.addEventListener('click', (e) => {
-      // eslint-disable-next-line no-use-before-define
-      showOptionsMenu(e);
-    });
-
-    function showOptionsMenu(e) {
-      const optionsMenus = document.querySelectorAll('.options-menu');
-      // Hide all other options menus
-      optionsMenus.forEach((menu) => {
-        if (menu !== e.target.querySelector('.options-menu')) {
-          menu.remove();
-        }
-      });
-
-      const optionsMenu = document.createElement('div');
-      optionsMenu.classList.add('options-menu');
-
-      const editButton = document.createElement('button');
-      editButton.textContent = 'Edit';
-      editButton.addEventListener('click', () => {
-        // eslint-disable-next-line no-use-before-define
-        editTodo(todo);
-        // eslint-disable-next-line no-use-before-define
-        hideOptionsMenu();
-      });
-
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = 'Delete';
-      deleteButton.addEventListener('click', () => {
-        // eslint-disable-next-line no-use-before-define
-        deleteTodo(todo);
-        // eslint-disable-next-line no-use-before-define
-        hideOptionsMenu();
-      });
-
-      optionsMenu.appendChild(editButton);
-      optionsMenu.appendChild(deleteButton);
-      e.target.appendChild(optionsMenu);
-    }
-
-    function hideOptionsMenu() {
-      const optionsMenu = document.querySelector('.options-menu');
-      if (optionsMenu !== null) {
-        optionsMenu.remove();
-      }
-    }
 
     function editTodo(todo) {
       const todoIndex = todos.indexOf(todo);
@@ -138,14 +91,54 @@ const renderTodoList = () => {
       todos.splice(todoIndex, 1);
 
       // Update the indexes of remaining todos
-      // eslint-disable-next-line no-plusplus
-      for (let i = todoIndex; i < todos.length; i++) {
+      for (let i = todoIndex; i < todos.length; i += 1) {
         todos[i].index = i + 1;
       }
 
       localStorage.setItem('todos', JSON.stringify(todos));
       renderTodoList();
     };
+
+    function hideOptionsMenu() {
+      const optionsMenu = document.querySelector('.options-menu');
+      if (optionsMenu !== null) {
+        optionsMenu.remove();
+      }
+    }
+    function showOptionsMenu(e) {
+      const optionsMenus = document.querySelectorAll('.options-menu');
+      // Hide all other options menus
+      optionsMenus.forEach((menu) => {
+        if (menu !== e.target.querySelector('.options-menu')) {
+          menu.remove();
+        }
+      });
+
+      const optionsMenu = document.createElement('div');
+      optionsMenu.classList.add('options-menu');
+
+      const editButton = document.createElement('button');
+      editButton.textContent = 'Edit';
+      editButton.addEventListener('click', () => {
+        editTodo(todo);
+        hideOptionsMenu();
+      });
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        deleteTodo(todo);
+        hideOptionsMenu();
+      });
+
+      optionsMenu.appendChild(editButton);
+      optionsMenu.appendChild(deleteButton);
+      e.target.appendChild(optionsMenu);
+    }
+
+    icon.addEventListener('click', (e) => {
+      showOptionsMenu(e);
+    });
 
     checkbox.addEventListener('change', () => {
       todo.completed = checkbox.checked;
