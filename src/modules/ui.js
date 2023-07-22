@@ -1,5 +1,5 @@
 import { todos, renderTodoList, todoList } from './todos.js';
-import addItem from './ui-action.js';
+import { addItem } from './ui-action.js';
 
 const newItemInput = document.getElementById('new-item-input');
 const addItemButton = document.getElementById('add-item-button');
