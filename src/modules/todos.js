@@ -1,8 +1,9 @@
-import addItem from './ui-action.js';
+import { addItem, clearCompleted } from './ui-action.js';
 
 const todoList = document.getElementById('todo-list');
 const input = document.getElementById('new-item-input');
 const addItemButton = document.getElementById('add-item-button');
+const clearCompletedButton = document.getElementById('clear-completed-button');
 
 const todos = JSON.parse(localStorage.getItem('todos')) || [];
 
@@ -155,6 +156,10 @@ const renderTodoList = () => {
 
   addItemButton.addEventListener('click', () => {
     addItem(todos, input, renderTodoList);
+  });
+
+  clearCompletedButton.addEventListener('click', () => {
+    clearCompleted(todos, renderTodoList);
   });
 };
 
